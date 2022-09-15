@@ -10,16 +10,22 @@
 </head>
 
 <body>
-    <div id="shopping-list" class="bg-purple-200 h-screen w-screen">
+    <div id="shopping-list" class="bg-cyan-800 h-screen w-screen">
         <div class="pt-16">
-            <div class="bg-white h-80 w-1/2 m-auto rounded-lg md">
-                <h2>Shopping List App</h2>
-                <input type="text" v-model="item" @keyup.enter="addItems" class="border-4 w-64" />
-                <button type="submit" value="add" @click="addItems">add items</button>
+            <div class="bg-white h-80 w-2/4 m-auto rounded-lg md">
+                <h2 class="text-center text-3xl semibold pt-8 mb-16">Shopping List App</h2>
+                <div class="flex justify-center">
+                    <input type="text" v-model="item" @keyup.enter="addItems" class="border-4 w-64 outline-nine " />
+                    <button type="submit" value="add" @click="addItems"
+                        class="bg-orange-400 px-8 py-2 text-white rounded-lg">add
+                        items</button>
+                </div>
+                <div class="flex justify-center mr-20">
+                    <ul>
+                        <li v-for="item in items">{{ item }}</li>
+                    </ul>
+                </div>
 
-                <ul>
-                    <li v-for="item in items">{{ item }}</li>
-                </ul>
                 <p v-if="items.length === 0">You have purchased all your shopping list items</p>
             </div>
         </div>
